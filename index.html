@@ -18,11 +18,27 @@ body {
 
 .fog {
     position: absolute;
-    width: 200%;
-    height: 200%;
-    background: radial-gradient(circle at center, rgba(255,255,255,0.3), transparent 70%);
+    width: 300%;
+    height: 300%;
+    background: radial-gradient(circle at center, rgba(255,255,255,0.25), transparent 70%);
     animation: disperse 6s ease-out forwards;
 }
+
+@media (min-width: 768px) {  /* 桌機以上 */
+    .fog {
+        width: 200%;
+        height: 200%;
+    }
+}
+
+h1 {
+    font-size: 8vw; /* 手機自動縮放 */
+}
+
+p {
+    font-size: 3vw;
+}
+
 
 @keyframes disperse {
     0% { opacity: 1; transform: translate(0,0) scale(1); }
