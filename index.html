@@ -1,79 +1,97 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
 <head>
 <meta charset="UTF-8">
-<title>Akatsuna Shrine</title>
+<title>赤繩神社</title>
 <style>
+/* ===== Body & 文字置中 ===== */
 body {
     margin: 0;
     height: 100vh;
     background: black;
     overflow: hidden;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: center; /* 水平置中 */
+    align-items: center;     /* 垂直置中 */
     font-family: serif;
     color: white;
+    text-align: center;
+    flex-direction: column;
 }
 
+/* ===== 霧氣 ===== */
 .fog {
     position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(1);
     width: 300%;
     height: 300%;
     background: radial-gradient(circle at center, rgba(255,255,255,0.25), transparent 70%);
     animation: disperse 6s ease-out forwards;
 }
 
-@media (min-width: 768px) {  /* 桌機以上 */
+@keyframes disperse {
+    0% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+    100% { opacity: 0; transform: translate(-50%, -50%) scale(1.5); }
+}
+
+/* 桌機尺寸調整 */
+@media (min-width: 768px) {
     .fog {
         width: 200%;
         height: 200%;
     }
 }
 
-h1 {
-    font-size: 8vw; /* 手機自動縮放 */
-}
-
-p {
-    font-size: 3vw;
-}
-
-
-@keyframes disperse {
-    0% { opacity: 1; transform: translate(0,0) scale(1); }
-    100% { opacity: 0; transform: translate(80px,-80px) scale(1.5); }
-
-
+/* ===== 文字浮現 ===== */
 .content {
     opacity: 0;
-    text-align: center;
-    animation: fadeIn 4s ease 3s forwards;
+    animation: fadeIn 4s ease 3s forwards; /* 霧散後浮現 */
 }
 
 @keyframes fadeIn {
     to { opacity: 1; }
 }
 
+/* ===== 標題 & 副標 ===== */
 h1 {
-    font-weight: normal;
-    letter-spacing: 3px;
+    font-size: 12vw; /* 手機自動縮放 */
+    margin: 0;
 }
 
 p {
-    font-size: 14px;
+    font-size: 4vw;
+    margin: 8px 0 0 0;
     opacity: 0.7;
+}
+
+/* ===== Enter 按鈕 ===== */
+.enter-button {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 8px 16px;
+    border: 1px solid white;
+    color: white;
+    text-decoration: none;
+    font-size: 4vw;
+    opacity: 0;
+    animation: fadeIn 4s ease 4s forwards; /* 文字浮現後才出現 */
+    transition: 0.3s;
+}
+.enter-button:hover {
+    background: rgba(255,255,255,0.1);
 }
 </style>
 </head>
-
 <body>
 
 <div class="fog"></div>
 
 <div class="content">
     <h1>赤縄神社</h1>
-    <p>そっと歩いてごらん、いつもとは違う世界が見えるかもしれない。</p>
+    <p>ここから絡み合う運命の門が開く</p>
+    <a href="shrine.html" class="enter-button">Enter</a>
 </div>
 
 </body>
