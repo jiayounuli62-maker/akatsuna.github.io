@@ -21,7 +21,8 @@ body {
 /* ===== 霧氣 ===== */
 .fog {
     position: absolute;
-    top: 50%;
+    z-index: 0;
+top: 50%;
     left: 50%;
     transform: translate(-50%, -50%) scale(1);
     width: 300%;
@@ -34,15 +35,12 @@ body {
     100% { opacity: 0; transform: translate(-50%, -50%) scale(1.5); }
 }
 /* 桌機尺寸調整 */
-@media (min-width: 768px) {
-    .fog {
-        width: 100%;
-        height: 100%;
-    }
-}
+
 /* ===== 文字浮現 ===== */
 .content {
-    opacity: 0;
+   position: relative;
+z-index: 1;
+ opacity: 0;
     animation: fadeIn 4s ease 3s forwards; /* 霧散後浮現 */
 }
 @keyframes fadeIn {
