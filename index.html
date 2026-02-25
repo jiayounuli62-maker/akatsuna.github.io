@@ -25,16 +25,19 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%) scale(1);
-    width: 300%;
-    height: 300%;
-    background: radial-gradient(circle at center, rgba(255,255,255,0.25), transparent 70%);
+    width: 250vmax;
+    height: 250vmax;
+    background: radial-gradient(circle at center, rgba(255,255,255,0.25), transparent 60%);
     animation: disperse 6s ease-out forwards;
 }
-
 @keyframes disperse {
-    0% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
-    100% { opacity: 0; transform: translate(-50%, -50%) scale(1.5); }
-}
+    0% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(1.4);}
 
 /* 桌機尺寸調整 */
 @media (min-width: 768px) {
@@ -47,7 +50,7 @@ body {
 /* ===== 文字浮現 ===== */
 .content {
     opacity: 0;
-    animation: fadeIn 4s ease 3s forwards; /* 霧散後浮現 */
+    animation: fadeIn 3s ease 3s forwards; /* 霧散後浮現 */
 }
 
 @keyframes fadeIn {
@@ -56,27 +59,26 @@ body {
 
 /* ===== 標題 & 副標 ===== */
 h1 {
-    font-size: 12vw; /* 手機自動縮放 */
+    font-size: clamp(32px, 8vw, 80px);
     margin: 0;
 }
-
 p {
-    font-size: 4vw;
-    margin: 8px 0 0 0;
+    font-size: clamp(14px, 3vw, 22px);
+    margin-top: 10px;
     opacity: 0.7;
 }
 
 /* ===== Enter 按鈕 ===== */
 .enter-button {
     display: inline-block;
-    margin-top: 20px;
-    padding: 8px 16px;
+    margin-top: 24px;
+    padding: 8px 18px;
     border: 1px solid white;
     color: white;
     text-decoration: none;
-    font-size: 4vw;
+    font-size: clamp(14px, 3vw, 20px);
     opacity: 0;
-    animation: fadeIn 4s ease 4s forwards; /* 文字浮現後才出現 */
+    animation: fadeIn 3s ease 4s forwards;
     transition: 0.3s;
 }
 .enter-button:hover {
