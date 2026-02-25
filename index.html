@@ -18,27 +18,21 @@ body {
     text-align: center;
     flex-direction: column;
 }
-
 /* ===== 霧氣 ===== */
 .fog {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%) scale(1);
-    width: 250vmax;
-    height: 250vmax;
-    background: radial-gradient(circle at center, rgba(255,255,255,0.25), transparent 60%);
+    width: 300%;
+    height: 300%;
+    background: radial-gradient(circle at center, rgba(255,255,255,0.25), transparent 70%);
     animation: disperse 6s ease-out forwards;
 }
 @keyframes disperse {
-    0% {
-        opacity: 1;
-        transform: translate(-50%, -50%) scale(1);
-    }
-    100% {
-        opacity: 0;
-        transform: translate(-50%, -50%) scale(1.4);}
-
+    0% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+    100% { opacity: 0; transform: translate(-50%, -50%) scale(1.5); }
+}
 /* 桌機尺寸調整 */
 @media (min-width: 768px) {
     .fog {
@@ -46,30 +40,26 @@ body {
         height: 100%;
     }
 }
-
 /* ===== 文字浮現 ===== */
 .content {
     opacity: 0;
-    animation: fadeIn 3s ease 3s forwards; /* 霧散後浮現 */
+    animation: fadeIn 4s ease 3s forwards; /* 霧散後浮現 */
 }
-
 @keyframes fadeIn {
     to { opacity: 1; }
 }
-
 /* ===== 標題 & 副標 ===== */
 h1 {
-    font-size: clamp(32px, 8vw, 80px);
+    font-size: 12vw; /* 手機自動縮放 */
     margin: 0;
 }
 p {
-    font-size: clamp(14px, 3vw, 22px);
-    margin-top: 10px;
+    font-size: 4vw;
+    margin: 8px 0 0 0;
     opacity: 0.7;
 }
-
 /* ===== Enter 按鈕 ===== */
-enter-button {
+.enter-button {
     display: inline-block;
     margin-top: 20px;
     padding: 8px 16px;
@@ -93,6 +83,5 @@ enter-button {
     <p>ここから絡み合う運命の門が開く</p>
     <a href="shrine.html" class="enter-button">入る</a>
 </div>
-
 </body>
 </html>
