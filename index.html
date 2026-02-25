@@ -69,16 +69,16 @@ p {
 }
 
 /* ===== Enter 按鈕 ===== */
-.enter-button {
+enter-button {
     display: inline-block;
-    margin-top: 24px;
-    padding: 8px 18px;
+    margin-top: 20px;
+    padding: 8px 16px;
     border: 1px solid white;
     color: white;
     text-decoration: none;
-    font-size: clamp(14px, 3vw, 20px);
+    font-size: 4vw;
     opacity: 0;
-    animation: fadeIn 3s ease 4s forwards;
+    animation: fadeIn 4s ease 4s forwards; /* 文字浮現後才出現 */
     transition: 0.3s;
 }
 .enter-button:hover {
@@ -87,9 +87,7 @@ p {
 </style>
 </head>
 <body>
-
 <div class="fog"></div>
-
 <div class="content">
     <h1>赤縄神社</h1>
     <p>ここから絡み合う運命の門が開く</p>
